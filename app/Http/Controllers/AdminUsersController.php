@@ -38,7 +38,7 @@ class AdminUsersController extends Controller
     {
         //
 
-        $roles = Role::lists('name', 'id')->all(); // we use lists() to get an array
+        $roles = Role::pluck('name', 'id')->all(); // we use lists() to get an array
 
         return view('admin.users.create', compact('roles'));
 
@@ -112,7 +112,7 @@ class AdminUsersController extends Controller
 
         $user = User::findOrFail($id); // find user by id
 
-        $roles = Role::lists('name', 'id')->all();
+        $roles = Role::pluck('name', 'id')->all();
 
         // pass the user to the edit view
         return view('admin.users.edit', compact('user', 'roles'));

@@ -2,11 +2,33 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
+
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
     //
+
+
+    use Sluggable;
+    use SluggableScopeHelpers;
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
+
 
     protected $fillable = [
 
@@ -32,6 +54,19 @@ class Post extends Model
     public function category() {
 
         return $this->belongsTo('App\Category');
+
+    }
+
+    // "For example, a blog post may have an infinite number of comments."
+    public function comments(){
+
+        return $this->hasMany('App\Comment');
+
+    }
+
+    public function photoPlaceholder(){
+
+        return "http://placehold.it/700x200px";
 
     }
 
