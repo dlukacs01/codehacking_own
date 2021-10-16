@@ -1,4 +1,7 @@
-URL: https://www.dlukacs.com/laravel/
+Udemy (course name): PHP with Laravel for beginners - Become a Master in Laravel  
+Udemy (URL): https://www.udemy.com/course/php-with-laravel-for-beginners-become-a-master-in-laravel/  
+note: written in Laravel 5.2  
+project URL (demo): https://www.dlukacs.com/laravel/
 
 # Laravel PHP Framework
 
